@@ -15,13 +15,10 @@ Design: [https://cdn.discordapp.com/attachments/648536139677958156/6514790194762
 
 ## Project features
 
-- Github pages
-- images
-- fixed width content
-- desktop only
-- multi-page (sign - up, sign - in, pw)
-- form
-- css blur
+- responsive design
+- repetitive content is generated/rendered
+- css animations
+- NodeJS
 
 ## Authors
 
