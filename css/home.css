@@ -12,4 +12,12 @@
 @import "./components/mouse.css";
 @import "./components/progress-bar.css";
 
-/* ....    */
+/* CUSTOM STYLE  */
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
