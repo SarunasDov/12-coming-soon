@@ -40,7 +40,6 @@ class Clock {
             return false;
         }
         this.DOM = document.querySelector(this.selector);
-        console.log(this.DOM);
             if (!this.DOM) {
             console.error('ERROR: could not find an element by given selector');
             return false;
