@@ -16,12 +16,12 @@ const socialsData = [
         icon: 'tumblr'
     },
     {
-        href: 'https://www.linkedin.com',
-        icon: 'linkedin'
+        href: '#',
+        icon: 'instagram'
     },
     {
         href: '#',
-        icon: 'instagram'
+        icon: 'linkedin'
     },
     {
         href: '#',

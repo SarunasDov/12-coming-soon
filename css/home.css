@@ -1,16 +1,17 @@
 /* base */
-@import "./base/reset.css";
-@import "./base/variables.css";
-@import "./base/layout.css";
+@import './base/reset.css';
+@import './base/variables.css';
+@import './base/layout.css';
 
 /* 3rd party */
-@import "./3rd-party/font-awesome.min.css";
+@import './3rd-party/font-awesome.min.css';
+
 /* components */
-@import "./components/button.css";
-@import "./components/clock.css";
-@import "./components/form.css";
-@import "./components/mouse.css";
-@import "./components/progress-bar.css";
+@import './components/button.css';
+@import './components/clock.css';
+@import './components/form.css';
+@import './components/mouse.css';
+@import './components/progress-bar.css';
 
 /* CUSTOM STYLE BELOW THIS COMMENT */
 
@@ -55,6 +56,28 @@
 }
 
 /* MAIN CONTENT SECTION */
+main > .row-big > div {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.section-title {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.section-description {
+  font-size: 18px;
+  color: var(--color-grey);
+  line-height: 1.7em;
+}
+.section-description > a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+.section-description > a:hover {
+  text-decoration: underline;
+}
 
 /* FOOTER SECTION */
 footer.container {
@@ -67,22 +90,72 @@ footer.container {
   justify-content: center;
   flex-wrap: wrap;
   padding: 15px;
-  border-bottom: 1px solid var(color-light);
+  border-bottom: 1px solid var(--color-light);
 }
-
 .socials > .fa {
   color: var(--color-light);
   width: 40px;
   height: 40px;
-  line-height: 40px;
   font-size: 24px;
-  text-align: center;
+  line-height: 40px;
   text-decoration: none;
+  text-align: center;
   border-radius: 50%;
   transition: all 0.5s;
 }
-
 .socials > .fa:hover {
   background-color: var(--color-light);
   color: var(--color-primary);
+}
+
+.bottom-texts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #fffb;
+  font-size: 18px;
+  line-height: 1.6em;
+}
+.footer-logo {
+  height: 50px;
+  margin: 30px 0;
+  object-fit: contain;
+  object-position: center;
+}
+.multi-text {
+  display: flex;
+  justify-content: center;
+  gap: 0 30px;
+}
+.multi-text > div {
+  position: relative;
+}
+.multi-text > div::before {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 15px;
+  background-color: var(--color-light);
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.multi-text > div:first-of-type::before {
+  display: none;
+}
+.bottom-texts > p {
+}
+.bottom-texts a {
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .multi-text {
+    flex-direction: column;
+  }
+  .multi-text > div::before {
+    display: none;
+  }
 }
