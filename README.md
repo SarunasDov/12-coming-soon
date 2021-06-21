@@ -22,4 +22,5 @@ Design: [Coming soon](https://cdn.discordapp.com/attachments/648536139677958156/
 
 ## Authors
 
-[Rimantas](https://github.com/belauzas)
+Sarunas: [Github](https://github.com/SarunasDov)
+[Linkedin](linkedin.com/in/sarunas-dovydaitis-7a5644174)
