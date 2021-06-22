@@ -1,22 +1,17 @@
-button {
-  float: right;
-  padding: 0 20px;
-  line-height: 40px;
-  font-size: 18px;
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  line-height: 24px;
+  font-size: 20px;
+  text-decoration: none;
   background-color: var(--color-secondary);
-  color: #fff;
-  text-transform: capitalize;
+  color: var(--color-light);
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0002;
+  transition: all 0.5s;
 }
-.msgb {
-  position: relative;
-}
-.message-button {
-  right: 0;
-  position: absolute;
-}
-.subscribe-button {
-  width: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+.btn:hover {
+  box-shadow: 0 2px 8px #0007;
 }
