@@ -79,6 +79,10 @@ main > .row-big > div {
   text-decoration: underline;
 }
 
+main form > button {
+  float: right;
+}
+
 /* FOOTER SECTION */
 footer.container {
   padding-top: 0;

@@ -1,0 +1,22 @@
+button {
+  float: right;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 18px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+}
+.msgb {
+  position: relative;
+}
+.message-button {
+  right: 0;
+  position: absolute;
+}
+.subscribe-button {
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
