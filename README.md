@@ -11,19 +11,16 @@ This project is for educational porpuses only. Pull request are welcome, but pri
 
 Site published at https://sarunasdov.github.io/12-coming-soon/
 
-Design: [https://cdn.discordapp.com/attachments/648536139677958156/651479019476221953/coming-soon-wide.png]
+Design: [Coming soon](https://cdn.discordapp.com/attachments/648536139677958156/651479019476221953/coming-soon-wide.png)
 
 ## Project features
 
-- Github pages
-- images
-- fixed width content
-- desktop only
-- multi-page (sign - up, sign - in, pw)
-- form
-- css blur
+- responsive design
+- repetitive content is generated/rendered;
+- css animations
+- NodeJS
 
 ## Authors
 
-[Github](https://github.com/SarunasDov)
+Sarunas: [Github](https://github.com/SarunasDov)
 [Linkedin](linkedin.com/in/sarunas-dovydaitis-7a5644174)
