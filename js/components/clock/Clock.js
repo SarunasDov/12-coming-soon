@@ -88,7 +88,7 @@ class Clock {
             for (let i = 0; i < 4; i++) {
                 this.allValuesDOM[i].innerText = timeValues[i];
             }
-        }, 1000)
+        }, 100)
     }
 
     render() {
