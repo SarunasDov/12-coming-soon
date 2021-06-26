@@ -2,80 +2,86 @@ class Form {
     constructor(selector) {
         this.selector = selector;
 
-        this.DOM = null;
+        this.formDOM = null;
         this.allInputsDOM = [];
         this.submitButtonDOM = null;
+        this.validations = {
+            name: this.isValidName,
+            email: this.isValidEmail,
+            text: this.isValidText,
+        };
 
         this.init();
     }
 
     init() {
         if (!this.isValidSelector()) {
-            console.error('ERROR: nepraejo pirmines patikros');
+            console.error('ERROR: nevalidus selector');
             return false;
         }
 
-        this.DOM = document.querySelector(this.selector);
-        if (!this.DOM) {
-            console.error('ERROR: nerestas elementas, pagal duota selector');
+        this.formDOM = document.querySelector(this.selector);
+        if (!this.formDOM) {
+            console.error('ERROR: nerastas formos elementas');
             return false;
         }
-        this.allInputsDOM = document.querySelectorAll('input, textarea')
-        this.submitButtonDOM = document.querySelector('button')
+
+        this.allInputsDOM = this.formDOM.querySelectorAll('input, textarea');
+        this.submitButtonDOM = this.formDOM.querySelector('button[type="submit"]');
 
         this.addEvents();
     }
 
     isValidSelector() {
-        if (typeof this.selector !== 'string' ||
-            this.selector === '') {
+        return true;
+    }
+
+    isValidName(name) {
+        if (typeof name !== 'string' || name === '') {
             return false;
         }
         return true;
     }
+
     isValidEmail(email) {
-        if (typeof email !== 'string' ||
-            email.length < 6 ||
-            email.indexOf('@') === -1 ||
-            email[0] === '@' ||
-            email.slice(-4).indexOf('@') > -1) {
+        if (typeof email !== 'string' || email === '') {
             return false;
         }
         return true;
     }
 
-    countSimbols(text, letter) {
-        let count = 0;
-
-        for (const t of text) {
-            if (t === letter) {
-                count++;
-            }
+    isValidText(text) {
+        if (typeof text !== 'string' || text === '') {
+            return false;
         }
-        return count;
+        return true;
     }
-
 
     addEvents() {
-        this.submitButtonDOM.addEventListener('click', (e) => {
-            e.preventDefault();
-            let allGood = true;
-            for (let element of this.allInputsDOM) {
-                const validdationRule = element.dataset.validation;
+        this.submitButtonDOM.addEventListener('click', (event) => {
+            // submit mygtuko paspaudimo metu reikia isjungti default veikima
+            event.preventDefault();
 
-                if (validdationRule === 'email') {
-                    if (this.isValidEmail(element.value) === false) {
-                        allGood = false;
-                        break;
-                    }
+            // issitraukti is visu formos lauku informacija
+            // eiti per visus laukus ir atpazinus informacijos tipa atlikti tos informacijos validacija
+            let allGood = true;
+
+            for (const inputDOM of this.allInputsDOM) {
+                const validationRule = inputDOM.dataset.validation;
+                const value = inputDOM.value;
+
+                if (!this.validations[validationRule](value)) {
+                    allGood = false;
+                    break;
                 }
             }
-            console.log('All Good?', allGood)
-        })
 
+
+            // jei patikrinus visus laukus, nerasta nei vienos klaidos, tai "siunciam pranesima"
+            // jei patikrinus visus laukus, nerasta bent viena klaida, tai parodome visu klaidos pranesimus (kol kas, viskas pateikiama i console)
+            console.log('All good:', allGood);
+        })
     }
 }
 
 export { Form }
-
-
