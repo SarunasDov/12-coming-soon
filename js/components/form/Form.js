@@ -10,29 +10,72 @@ class Form {
     }
 
     init() {
-        // patikrinti, ar validus selector
-        // jei ne, baigiam darba
+        if (!this.isValidSelector()) {
+            console.error('ERROR: nepraejo pirmines patikros');
+            return false;
+        }
 
-        //susirasti DOM elementa
-        //jei rasti nepavyksta , baigiam darba
-
-        //susirasti visus formos laukus: input, textarea
-        //susirasti formos submit mygtuka
-
-        //uzregistruojame mygtuko paspaudimo ivyki
+        this.DOM = document.querySelector(this.selector);
+        if (!this.DOM) {
+            console.error('ERROR: nerestas elementas, pagal duota selector');
+            return false;
+        }
+        this.allInputsDOM = document.querySelectorAll('input, textarea')
+        this.submitButtonDOM = document.querySelector('button')
 
         this.addEvents();
     }
 
+    isValidSelector() {
+        if (typeof this.selector !== 'string' ||
+            this.selector === '') {
+            return false;
+        }
+        return true;
+    }
+    isValidEmail(email) {
+        if (typeof email !== 'string' ||
+            email.length < 6 ||
+            email.indexOf('@') === -1 ||
+            email[0] === '@' ||
+            email.slice(-4).indexOf('@') > -1) {
+            return false;
+        }
+        return true;
+    }
+
+    countSimbols(text, letter) {
+        let count = 0;
+
+        for (const t of text) {
+            if (t === letter) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
     addEvents() {
-        // submit mygtuko paspaudimo metu reikia isjungti default veikima
+        this.submitButtonDOM.addEventListener('click', (e) => {
+            e.preventDefault();
+            let allGood = true;
+            for (let element of this.allInputsDOM) {
+                const validdationRule = element.dataset.validation;
 
-        // issitraukti is visu formos lauku informacija
-        // eiti per visus laukus ir atpazinus informacijos tipa (vardas email, amzius ir t.t.) atlikti tos informacijos validacija
+                if (validdationRule === 'email') {
+                    if (this.isValidEmail(element.value) === false) {
+                        allGood = false;
+                        break;
+                    }
+                }
+            }
+            console.log('All Good?', allGood)
+        })
 
-        // jei patikrinus visus laukus, nerasta nei vienos klaidos, tai "siunciam pranesima"
-        // jei patikrinus visus laukus, rast bent viena klaida, tai parodome visus klaidos pranesimus(kol kas, viskas pateikiama i console)
     }
 }
 
 export { Form }
+
+
