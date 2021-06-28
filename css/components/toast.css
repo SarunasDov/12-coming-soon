@@ -1,0 +1,45 @@
+.toast {
+  display: flex;
+  gap: ;
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  background-color: #1bc5bd;
+  padding: 20px;
+  color: #fff;
+  line-height: 28px;
+  font-size: 20px;
+}
+
+.toast[data-state='success'] {
+  background-color: #1bc5bd;
+}
+
+.toast[data-state='info'] {
+  background-color: #8950fc;
+}
+
+.toast[data-state='warning'] {
+  background-color: #ffa800;
+}
+
+.toast[data-state='error'] {
+  background-color: #f64e60;
+}
+
+.toast > .fa {
+  display: none;
+  font-size: 32px;
+}
+
+.toast[data-state='success'] > .fa-check,
+.toast[data-state='info'] > .fa-info-circle,
+.toast[data-state='warning'] > .fa-exclamation-triangle,
+.toast[data-state='error'] > .fa-shield {
+  display: inline-block;
+  align-items: center;
+}
+
+.toast > .fa-times {
+  font-size: 18px;
+}
